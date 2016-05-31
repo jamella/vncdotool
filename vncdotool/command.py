@@ -143,6 +143,13 @@ def build_command_list(factory, args, delay=None, warp=1.0):
                 factory.deferred.addCallback(client.keyPress, key)
                 if delay:
                     factory.deferred.addCallback(client.pause, delay)
+        elif cmd == 'typefile':
+            with open(args.pop(0)) as f:
+                content = f.read()
+                for key in content:
+                    factory.deferred.addCallback(client.keyPress, key)
+                    if delay:
+                        factory.deferred.addCallback(client.pause, delay)
         elif cmd == 'capture':
             filename = args.pop(0)
             imgformat = os.path.splitext(filename)[1][1:]

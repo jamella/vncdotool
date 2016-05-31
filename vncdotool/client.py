@@ -21,6 +21,8 @@ log = logging.getLogger('vncdotool.client')
 KEYMAP = {
     'bsp': rfb.KEY_BackSpace,
     'tab': rfb.KEY_Tab,
+    '\t': rfb.KEY_Tab,
+    '\n': rfb.KEY_Return,
     'return': rfb.KEY_Return,
     'enter': rfb.KEY_Return,
     'esc': rfb.KEY_Escape,
